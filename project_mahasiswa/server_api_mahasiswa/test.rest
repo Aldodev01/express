@@ -1,0 +1,42 @@
+###
+POST http://localhost:8080/api/create-mahasiswa
+Content-Type: application/json
+
+{
+  "nama_lengkap" : "Aldodevv",
+  "phone" : "0813891313117",
+  "email" : "akhmadaldo@gmail.com",
+  "nim" : 15200233
+}
+
+###
+GET http://localhost:8080/api/read-mahasiswas
+Content-Type: application/json
+
+###
+POST http://localhost:8080/api/create-alamat
+Content-Type: application/json
+
+{
+  "mahasiswa_id" : 1,
+  "nama_jalan" : "Jl.pitara",
+  "no_rumah" : 213,
+  "rt_rw" : "12/03",
+  "kelurahan" : "pancoran-mas",
+  "kecamatan" : "Rangkepan Jaya",
+  "kota" : "Depok",
+  "kode_pos" : "14045"
+}
+
+###
+GET http://localhost:8080/api/read-alamats
+Content-Type: application/json
+
+###
+POST http://localhost:8080/api/create-photo
+Content-Type: application/json
+
+{
+  "photo" : "data:image/jpg: base64",
+  "mahasiswa_id" : 1
+}

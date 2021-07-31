@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>port 8080</title>
+  </head>
+  <body>
+    <div class="app" id="app"></div>
+
+    <script>
+      window.onload = function () {
+        let app = document.getElementById("app");
+
+        fetch("http://localhost:8080/api/users", {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            data.map((e) => {
+              app.innerHTML += `
+                <div class="card"> 
+                  <img src="data:image/png;base64,${e.avatar}" alt="${
+                e.username
+              } image" width="200px"/>
+                  <p>username : ${e.username}</p>
+                  <small>${new Date(e.created_at).toLocaleTimeString()}</small>
+                </div>
+              `;
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+    </script>
+  </body>
+</html>
